@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace是对应mapper的全限定名-->
+<mapper namespace="xyz.taoqz.mapper.BrandMapper">
+    <!--id是要调用的接口中的方法-->
+<!--  如果没有在主配置文件中配置需要写全类名  -->
+    <!--parameterType是要调用的接口中的方法的参数的类型-->
+    <!--resultType是要调用的接口中的方法的返回值类型 -->
+
+    <!--使用自主拼写-->
+    <!--&lt;!&ndash;动态sql-->
+         <!--* 如果likeUser中有name，则加入like “%name%”条件-->
+         <!--* 如果likeUser中有sex，则加入sex = “sex”条件&ndash;&gt;-->
+    <!--<select id="findByConditon" parameterType="com.czxy.domain.User4" resultType="com.czxy.domain.User4">-->
+        <!--select * from user4 where 1=1-->
+        <!--<if test="userName != null">-->
+            <!--and userName like #{userName}-->
+        <!--</if>-->
+        <!--<if test="sex != null">-->
+            <!--and sex = #{sex}-->
+        <!--</if>-->
+    <!--</select>-->
+
+    <!--使用mybaits自带的解决方案where标签-->
+    <!--动态sql :根据参数的不同，返回不同的sql语句
+    * 如果likeUser中有name，则加入like “%name%”条件
+    * 如果likeUser中有sex，则加入sex = “sex”条件-->
+<!--    <select id="findByConditon" parameterType="" resultType="">-->
+<!--    select * from user4-->
+<!--    <where>-->
+<!--        <if test="userName != null">-->
+<!--        and userName like #{userName}-->
+<!--        </if>-->
+<!--        <if test="sex != null">-->
+<!--        and sex = #{sex}-->
+<!--        </if>-->
+<!--    </where>-->
+<!--    </select>-->
+
+    <!--查询出id包含在参数数组中的所有User-->
+<!--    <select id="findAllUserByIdsParam" resultType="">-->
+<!--        select * from user4-->
+<!--        <where>-->
+<!--            <foreach collection="array" open="uid in(" item="thisId" separator="," close=")">-->
+<!--                #{thisId}-->
+<!--            </foreach>-->
+<!--        </where>-->
+<!--    </select>-->
+
+</mapper>
